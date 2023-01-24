@@ -15,18 +15,36 @@ export default class App extends React.Component {
         {
           name: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: true
         }
       ]
     }
   }
 
-    updateName = event => {
-      // this.setState({name:event.target.value})
-      // console.log({name:event.target.value})
-  } 
+  clear = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(todo => {
+        return (todo.completed === false)
+      })
+    }
+    )
+  }
+  handleAdd = (name) => {
+    const newTodo = {
+      name: name,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    })
+  }
 
-
+  handleToggle = () => {
+    
+  }
 
   render() {
     const { todos } = this.state
@@ -38,8 +56,8 @@ export default class App extends React.Component {
       <TodoList todos={todos}/>
 
         {/* <Todo todos={this.props.todos}/> */}
-        <Form />
-        <button>clear</button>
+        <Form handleAdd={this.handleAdd}/>
+        <button onClick={this.clear}>clear</button>
       </div>
     )
   }
