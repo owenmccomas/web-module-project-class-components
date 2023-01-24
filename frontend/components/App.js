@@ -1,5 +1,6 @@
 import React from 'react'
-import Todo from './Todo';
+import TodoList from './TodoList';
+import Form from './Form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class App extends React.Component {
     updateName = event => {
       // this.setState({name:event.target.value})
       // console.log({name:event.target.value})
-  }
+  } 
 
 
 
@@ -34,28 +35,10 @@ export default class App extends React.Component {
       <div>
         Todo App <br/><br/>
 
-      <ul>
-        {
-          todos.map(
-            todo => {
-              return(
-              <li>
-                {todo.name} 
-                {todo.completed?<span> - complete </span>:<span></span>}</li>)
-            }
-          )
-        }
-      </ul>
+      <TodoList todos={todos}/>
 
         {/* <Todo todos={this.props.todos}/> */}
-        <form>
-        <input 
-          type='text'
-          placeholder='add to todo list'
-          onChange={this.updateName()}
-        />
-        <button>add</button> 
-        </form>
+        <Form />
         <button>clear</button>
       </div>
     )

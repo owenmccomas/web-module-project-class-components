@@ -1,11 +1,7 @@
 import React from 'react'
 
-export default class Todo extends React.Component {
-  render() {
-    return (
-      <div>
-        Todo
-      </div>
-    )
+export default class Todo extends React.Component{
+  render(){ return(
+    <li>{this.props.todo.name}{this.props.todo.completed?<span> - complete </span>:<span></span>}</li>)
   }
 }

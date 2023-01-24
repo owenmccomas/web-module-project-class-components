@@ -3,9 +3,14 @@ import React from 'react'
 export default class Form extends React.Component {
   render() {
     return (
-      <div>
-        Form
-      </div>
+      <form>
+        <input 
+          type='text'
+          placeholder='add to todo list'
+          // onChange={this.updateName()}
+        />
+        <button>add</button> 
+        </form>
     )
   }
 }
